@@ -113,7 +113,6 @@
           last_name
         }
       });
-
       console.log(inventor_names);
 
       // Array.prototype.filter()
@@ -140,27 +139,40 @@
       console.log(inventors_by_age);
 
       // 6. Create a list of people, whose surnames includes 'rr'
-      const includes_rr = inventors.includes('rr',0);
+      const includes_rr = people.filter(person => person.includes('rr'));
       console.log(includes_rr);
 
       // 7. Sort the people alphabetically by last name
-      const by_last_name = people.sort((p1,p2)=>{
+      const by_last_name = people.sort((p1,p2) => {
         const [p1_first,p1_last] = p1.split(', ');
       })
       console.log(by_last_name);
 
       // 8. Sum up the instances of vehicles
+      const sum_up_the_instances_of_vehicles = vehicles.reduce((sum) => sum += 1, 0);
+      console.log(sum_up_the_instances_of_vehicles);
 
+      /*/*//*/*/
+      const current_year = new Date().getFullYear();
       // 9. Array.prototype.some() // is at least one person in the morePeople array 19 or older?
+      const is_at_least_someone_older_than_nineteen = morePeople.some(age => new Date().getFullYear() - age.year >= 19);
+      console.log('is_at_least_someone_older_than_nineteen: ' + is_at_least_someone_older_than_nineteen);
 
       // 10. Array.prototype.every() // is everyone in the morePeople array 19 or older?
+      const is_everyone_older_than_nineteen = morePeople.every(age => current_year - age.year >= 19);
+      console.log('is_everyone_older_than_nineteen: ' + is_everyone_older_than_nineteen);
 
       // 11. Array.prototype.find()
       // Find is like filter, but instead returns just the one you are looking for
       // find the comment with the ID of 823423
+      const gimme_id = comments.find(is_it_mine => is_it_mine.id === 823423);
+      console.log(gimme_id);
 
       // Array.prototype.findIndex()
       // 13. delete the comment with the ID of 823423
+      comments.splice(gimme_id,1);
+      console.log(gimme_id);
+      console.log(comments);
 
     </script>
   </body>
