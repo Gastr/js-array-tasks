@@ -102,35 +102,69 @@
         'truck',
       ];
 
-      // Array.prototype.map()
-      // 1. Give us an array of the inventors' first and last names
+       // 1.
+       const names = inventors.map(i => {
+        const first = i.first;
+        const last = i.last;
 
-      // Array.prototype.filter()
-      // 2. Filter the list of inventors for those who were born in the 1500's
+        return { first, last };
+      });
 
-      // Array.prototype.sort()
-      // 3. Sort the inventors by birthdate, oldest to youngest
+      console.log(names);
+
+      // 2.
+      const dates = inventors.filter(i => i.year >= 1500 && i.year < 1600);
+      console.log(dates);
+
+      // 3.
+      const bdays = inventors.sort((i, next) => i.year - next.year);
+      console.log(bdays);
 
       // 4. How many years did all the inventors live?
+      const years = inventors.reduce((total, i) => total + (i.passed - i.year), 0);
+      console.log(years);
 
       // 5. Sort the inventors by years lived
+      const theyLived = inventors.sort((i, next) => (i.passed - i.year) - (next.passed - next.year));
+      console.log(theyLived);
 
       // 6. Create a list of people, whose surnames includes 'rr'
+      const surnames = inventors.filter(i => i.last.includes("rr"));
+      console.log(surnames);
 
       // 7. Sort the people alphabetically by last name
+      const alphabetically = inventors.sort((i, next) => {
+          const first = i.last;
+          const second = next.last
+
+          return (first < second) ? -1 : (first > second) ? 1 : 0;
+        });
+
+      console.log(alphabetically);
 
       // 8. Sum up the instances of vehicles
+      let i = 0;
+      vehicles.map(() => ++i);
+      console.log(i);
 
       // 9. Array.prototype.some() // is at least one person in the morePeople array 19 or older?
+      const older = morePeople.some(i => (2020 - i.year) > 19);
+      console.log(older); 
 
       // 10. Array.prototype.every() // is everyone in the morePeople array 19 or older?
+      const every = morePeople.every(i => (2020 - i.year) > 19);
+      console.log(every);
 
       // 11. Array.prototype.find()
       // Find is like filter, but instead returns just the one you are looking for
       // find the comment with the ID of 823423
+      const comment = comments.find((i) => i.id === 823423);
+      console.log(comment);
 
       // Array.prototype.findIndex()
       // 13. delete the comment with the ID of 823423
+      const commentIndex = comments.findIndex(i => i.id === 823423);
+      console.log(commentIndex);
 
     </script>
   </body>
