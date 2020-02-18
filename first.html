@@ -1,137 +1,279 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <title>Array Cardio 💪</title>
-  </head>
-  <body>
+</head>
+
+<body>
     <p><em>Psst: have a look at the JavaScript Console</em> 💁</p>
+    <p style="color:#6F1E51; font-weight: bold;"><em>Done 👍</em></p>
     <script>
-      // Get your shorts on - this is an array workout!
-      // ## Array Cardio Day 1
+        // Get your shorts on - this is an array workout!
+        // ## Array Cardio Day 1
 
-      // Some data we can work with
-      const inventors = [
-        { first: 'Albert', last: 'Einstein', year: 1879, passed: 1955 },
-        { first: 'Isaac', last: 'Newton', year: 1643, passed: 1727 },
-        { first: 'Galileo', last: 'Galilei', year: 1564, passed: 1642 },
-        { first: 'Marie', last: 'Curie', year: 1867, passed: 1934 },
-        { first: 'Johannes', last: 'Kepler', year: 1571, passed: 1630 },
-        { first: 'Nicolaus', last: 'Copernicus', year: 1473, passed: 1543 },
-        { first: 'Max', last: 'Planck', year: 1858, passed: 1947 },
-        { first: 'Katherine', last: 'Blodgett', year: 1898, passed: 1979 },
-        { first: 'Ada', last: 'Lovelace', year: 1815, passed: 1852 },
-        { first: 'Sarah E.', last: 'Goode', year: 1855, passed: 1905 },
-        { first: 'Lise', last: 'Meitner', year: 1878, passed: 1968 },
-        { first: 'Hanna', last: 'Hammarström', year: 1829, passed: 1909 },
-      ];
+        // Some data we can work with
+        const inventors = [{
+            first: "Albert",
+            last: "Einstein",
+            year: 1879,
+            passed: 1955
+        }, {
+            first: "Isaac",
+            last: "Newton",
+            year: 1643,
+            passed: 1727
+        }, {
+            first: "Galileo",
+            last: "Galilei",
+            year: 1564,
+            passed: 1642
+        }, {
+            first: "Marie",
+            last: "Curie",
+            year: 1867,
+            passed: 1934
+        }, {
+            first: "Johannes",
+            last: "Kepler",
+            year: 1571,
+            passed: 1630
+        }, {
+            first: "Nicolaus",
+            last: "Copernicus",
+            year: 1473,
+            passed: 1543
+        }, {
+            first: "Max",
+            last: "Planck",
+            year: 1858,
+            passed: 1947
+        }, {
+            first: "Katherine",
+            last: "Blodgett",
+            year: 1898,
+            passed: 1979
+        }, {
+            first: "Ada",
+            last: "Lovelace",
+            year: 1815,
+            passed: 1852
+        }, {
+            first: "Sarah E.",
+            last: "Goode",
+            year: 1855,
+            passed: 1905
+        }, {
+            first: "Lise",
+            last: "Meitner",
+            year: 1878,
+            passed: 1968
+        }, {
+            first: "Hanna",
+            last: "Hammarström",
+            year: 1829,
+            passed: 1909
+        }];
 
-      const people = [
-        'Beck, Glenn',
-        'Becker, Carl',
-        'Beckett, Samuel',
-        'Beddoes, Mick',
-        'Beecher, Henry',
-        'Beethoven, Ludwig',
-        'Begin, Menachem',
-        'Belloc, Hilaire',
-        'Bellow, Saul',
-        'Benchley, Robert',
-        'Benenson, Peter',
-        'Ben-Gurion, David',
-        'Benjamin, Walter',
-        'Benn, Tony',
-        'Bennington, Chester',
-        'Benson, Leana',
-        'Bent, Silas',
-        'Bentsen, Lloyd',
-        'Berger, Ric',
-        'Bergman, Ingmar',
-        'Berio, Luciano',
-        'Berle, Milton',
-        'Berlin, Irving',
-        'Berne, Eric',
-        'Bernhard, Sandra',
-        'Berra, Yogi',
-        'Berry, Halle',
-        'Berry, Wendell',
-        'Bethea, Erin',
-        'Bevan, Aneurin',
-        'Bevel, Ken',
-        'Biden, Joseph',
-        'Bierce, Ambrose',
-        'Biko, Steve',
-        'Billings, Josh',
-        'Biondo, Frank',
-        'Birrell, Augustine',
-        'Black, Elk',
-        'Blair, Robert',
-        'Blair, Tony',
-        'Blake, William',
-      ];
+        const people = [
+            "Beck, Glenn",
+            "Becker, Carl",
+            "Beckett, Samuel",
+            "Beddoes, Mick",
+            "Beecher, Henry",
+            "Beethoven, Ludwig",
+            "Begin, Menachem",
+            "Belloc, Hilaire",
+            "Bellow, Saul",
+            "Benchley, Robert",
+            "Benenson, Peter",
+            "Ben-Gurion, David",
+            "Benjamin, Walter",
+            "Benn, Tony",
+            "Bennington, Chester",
+            "Benson, Leana",
+            "Bent, Silas",
+            "Bentsen, Lloyd",
+            "Berger, Ric",
+            "Bergman, Ingmar",
+            "Berio, Luciano",
+            "Berle, Milton",
+            "Berlin, Irving",
+            "Berne, Eric",
+            "Bernhard, Sandra",
+            "Berra, Yogi",
+            "Berry, Halle",
+            "Berry, Wendell",
+            "Bethea, Erin",
+            "Bevan, Aneurin",
+            "Bevel, Ken",
+            "Biden, Joseph",
+            "Bierce, Ambrose",
+            "Biko, Steve",
+            "Billings, Josh",
+            "Biondo, Frank",
+            "Birrell, Augustine",
+            "Black, Elk",
+            "Blair, Robert",
+            "Blair, Tony",
+            "Blake, William"
+        ];
 
-      const morePeople = [
-        { name: 'Wes', year: 1988 },
-        { name: 'Kait', year: 1986 },
-        { name: 'Irv', year: 1970 },
-        { name: 'Lux', year: 2015 },
-      ];
+        const morePeople = [{
+            name: "Wes",
+            year: 1988
+        }, {
+            name: "Kait",
+            year: 1986
+        }, {
+            name: "Irv",
+            year: 1970
+        }, {
+            name: "Lux",
+            year: 2015
+        }];
 
-      const comments = [
-        { text: 'Love this!', id: 523423 },
-        { text: 'Super good', id: 823423 },
-        { text: 'You are the best', id: 2039842 },
-        { text: 'Ramen is my fav food ever', id: 123523 },
-        { text: 'Nice Nice Nice!', id: 542328 },
-      ];
+        const comments = [{
+            text: "Love this!",
+            id: 523423
+        }, {
+            text: "Super good",
+            id: 823423
+        }, {
+            text: "You are the best",
+            id: 2039842
+        }, {
+            text: "Ramen is my fav food ever",
+            id: 123523
+        }, {
+            text: "Nice Nice Nice!",
+            id: 542328
+        }];
 
-      const vehicles = [
-        'car',
-        'car',
-        'truck',
-        'truck',
-        'bike',
-        'walk',
-        'car',
-        'van',
-        'bike',
-        'walk',
-        'car',
-        'van',
-        'car',
-        'truck',
-      ];
+        const vehicles = [
+            "car",
+            "car",
+            "truck",
+            "truck",
+            "bike",
+            "walk",
+            "car",
+            "van",
+            "bike",
+            "walk",
+            "car",
+            "van",
+            "car",
+            "truck"
+        ];
+        // Array.prototype.map()
+        // 1. Give us an array of the inventors' first and last names
+        const InventorNames = inventors.map(inventor => {
+            const firstName = inventor.first;
+            const lastName = inventor.last;
+            return {
+                firstName,
+                lastName
+            };
+        });
+        console.log("1. Inventors - names: \n", InventorNames);
 
-      // Array.prototype.map()
-      // 1. Give us an array of the inventors' first and last names
+        // Array.prototype.filter()
+        // 2. Filter the list of inventors for those who were born in the 1500's
+        const inventorsFiltered = inventors.filter(
+            inventor => inventor.year >= 1501 && inventor.year <= 1600
+        );
+        console.log("2. Inventors - filtered: \n", inventorsFiltered);
+        // Array.prototype.sort()
+        // 3. Sort the inventors by birthdate, oldest to youngest
+        const oldestToYoungest = inventors.sort(
+            (inventor1, inventor2) => inventor1.year - inventor2.year
+        );
+        console.log("3. Inventors - oldest to youngest: \n", oldestToYoungest);
+        // 4. How many years did all the inventors live?
+        const totalYears = inventors.reduce(
+            (total, inventor) => total + (inventor.passed - inventor.year),
+            0
+        );
+        console.log("4. Inventors - total years: ", totalYears);
 
-      // Array.prototype.filter()
-      // 2. Filter the list of inventors for those who were born in the 1500's
+        // 5. Sort the inventors by years lived
+        const lifeLength = inventors.sort((inventor1, inventor2) => {
+            const firstAge = inventor1.passed - inventor1.year;
+            const secondAge = inventor2.passed - inventor2.year;
+            return firstAge > secondAge ? -1 : 1;
+        });
+        console.log("5. Inventors - lifeLength: ", lifeLength);
 
-      // Array.prototype.sort()
-      // 3. Sort the inventors by birthdate, oldest to youngest
+        // 6. Create a list of people, whose surnames includes 'rr'
+        //name
+        //const rrName = people.filter(person => person.includes("rr"));
+        const rrName = people.filter(person => {
+            const [p1First, p1Last] = person.split(", ");
+            return p1First.includes("rr");
+        });
+        console.log("6a. People - name includes 'RR'", rrName);
+        //surname
+        const rrSurname = people.filter(person => {
+            const [p1First, p1Last] = person.split(", ");
+            return p1Last.includes("rr");
+        });
+        console.log("6b. People - surname includes 'RR'", rrSurname);
 
-      // 4. How many years did all the inventors live?
+        // 7. Sort the people alphabetically by last name
+        //people???
+        const sortByLastName = people.sort((p1, p2) => {
+            const [p1First, p1Last] = p1.split(", ");
+        });
+        console.log("7a. Sort people by last name: ", sortByLastName);
+        //inventors
+        const invSortLast = inventors.sort((inventor1, inventor2) => {
+            const first = inventor1.last;
+            const second = inventor2.last;
+            return first < second ? -1 : first > second ? 1 : 0;
+        });
+        console.log("7b. Sort inventors by last name: ", invSortLast);
 
-      // 5. Sort the inventors by years lived
+        // 8. Sum up the instances of vehicles
+        const occurence = vehicles.reduce(function(count, word) {
+            count[word] = count.hasOwnProperty(word) ? count[word] + 1 : 1;
+            return count;
+        }, {});
+        console.log("8. Instances of vehicles: \n", occurence);
 
-      // 6. Create a list of people, whose surnames includes 'rr'
+        // 9. Array.prototype.some() // is at least one person in the morePeople array 19 or older?
+        const atLeast = morePeople.some(person => {
+            const d = new Date();
+            const yearNow = d.getFullYear();
+            const age = yearNow - person.year;
+            return age >= 19;
+        });
+        console.log("9. At least one person has 19 years: \n" + atLeast);
 
-      // 7. Sort the people alphabetically by last name
+        // 10. Array.prototype.every() // is everyone in the morePeople array 19 or older?
+        const everyPerson = morePeople.every(person => {
+            const d = new Date();
+            const yearNow = d.getFullYear();
+            const age = yearNow - person.year;
+            return age >= 19;
+        });
+        console.log("10. Each person has at least 19 years: \n" + everyPerson);
 
-      // 8. Sum up the instances of vehicles
+        // 11. Array.prototype.find()
+        // Find is like filter, but instead returns just the one you are looking for
+        // find the comment with the ID of 823423
+        const wantedID = comments.find(comment => comment.id == 823423);
+        console.log("11. wantedID: \n", wantedID);
 
-      // 9. Array.prototype.some() // is at least one person in the morePeople array 19 or older?
-
-      // 10. Array.prototype.every() // is everyone in the morePeople array 19 or older?
-
-      // 11. Array.prototype.find()
-      // Find is like filter, but instead returns just the one you are looking for
-      // find the comment with the ID of 823423
-
-      // Array.prototype.findIndex()
-      // 13. delete the comment with the ID of 823423
-
+        // Array.prototype.findIndex()
+        // 12. delete the comment with the ID of 823423
+        const wantedIdToDelete = comments.findIndex(
+            comment => comment.id == 823423
+        );
+        comments.splice(wantedIdToDelete, 1);
+        console.log("12. Comments: \n", comments);
     </script>
-  </body>
+</body>
+
 </html>
