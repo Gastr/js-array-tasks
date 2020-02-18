@@ -158,11 +158,11 @@
       console.log(sumVehicles);
 
       // 9. Array.prototype.some() // is at least one person in the morePeople array 19 or older?
-      const someOlder18 = morePeople.some(item => item.year >= 19);
+      const someOlder18 = morePeople.some(item => Date.now().year - item.year >= 19);
       console.log(someOlder18);
 
       // 10. Array.prototype.every() // is everyone in the morePeople array 19 or older?
-      const everyOlder18 = morePeople.every(item => item.year >= 19);
+      const everyOlder18 = morePeople.every(item => Date.now().year - item.year >= 19);
       console.log(everyOlder18);
 
       // 11. Array.prototype.find()
