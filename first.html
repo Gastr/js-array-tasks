@@ -123,14 +123,31 @@
 
       // Array.prototype.sort()
       // 3. Sort the inventors by birthdate, oldest to youngest
+      const oldest_to_youngest = inventors.sort((inventor1, inventor2) => inventor1.year - inventor2.year);
+      console.log(oldest_to_youngest);
 
       // 4. How many years did all the inventors live?
+      const total_years = inventors.reduce((total,inventor) => total + (inventor.passed - inventor.year),0);
+      console.log(total_years);
 
       // 5. Sort the inventors by years lived
+      const inventors_by_age = inventors.sort((inventor1,inventor2) => {
+        const i1_age = inventor1.passed - inventor1.year;
+        const i2_age = inventor2.passed - inventor2.year;
+
+        return i1_age > i2_age ? -1 : 1;
+      });
+      console.log(inventors_by_age);
 
       // 6. Create a list of people, whose surnames includes 'rr'
+      const includes_rr = inventors.includes('rr',0);
+      console.log(includes_rr);
 
       // 7. Sort the people alphabetically by last name
+      const by_last_name = people.sort((p1,p2)=>{
+        const [p1_first,p1_last] = p1.split(', ');
+      })
+      console.log(by_last_name);
 
       // 8. Sum up the instances of vehicles
 
