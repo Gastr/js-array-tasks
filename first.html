@@ -164,7 +164,8 @@
       // Array.prototype.findIndex()
       // 13. delete the comment with the ID of 823423
       const commentIndex = comments.findIndex(i => i.id === 823423);
-      console.log(commentIndex);
+      comments.splice(commentIndex, 1);
+      console.log(comments);
 
     </script>
   </body>
