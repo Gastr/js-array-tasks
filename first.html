@@ -110,6 +110,8 @@
         return { first, last };
       });
 
+      // const names = inventors.map(inv => {})
+
       console.log(names);
 
       // 2.
@@ -118,6 +120,8 @@
 
       // 3.
       const bdays = inventors.sort((i, next) => i.year - next.year);
+
+      // Dobre, iba maly nitpick. JS konvencia byva pisat premenne v camel case, cize bDays
       console.log(bdays);
 
       // 4. How many years did all the inventors live?
@@ -140,19 +144,34 @@
           return (first < second) ? -1 : (first > second) ? 1 : 0;
         });
 
+        // Vo vseobecnosti nie je dobre pouzivat double ternaty vyrazy.
+        // Sice mas kod na jeden riadok, ale readabilita je vyrazne zhorsena.
+        // Idealne by bolo rozdelit tie mena nejak takto:
+        // const [aLast, aFirst] = lastOne.split(', ');
+        // a potom len vratis 1 alebo -1 v ramci jednehho ternary :)
+
       console.log(alphabetically);
 
       // 8. Sum up the instances of vehicles
       let i = 0;
       vehicles.map(() => ++i);
+
+      // Chytre!
+      // Ale uloha bola vypisat objekt typu: { car: 2, bus: 3 }
+      // Ale chapem, ze to nemuselo byt zo zadania ihned jasne, moja chyba. 
       console.log(i);
 
       // 9. Array.prototype.some() // is at least one person in the morePeople array 19 or older?
       const older = morePeople.some(i => (2020 - i.year) > 19);
+      
+      // Co ked sa ti zmeni rok?
+      // Interval je vratane 19, takze mas mensiu chybku v podmienke
       console.log(older); 
 
       // 10. Array.prototype.every() // is everyone in the morePeople array 19 or older?
       const every = morePeople.every(i => (2020 - i.year) > 19);
+
+      // to iste, co uloha 10
       console.log(every);
 
       // 11. Array.prototype.find()
@@ -167,6 +186,10 @@
       comments.splice(commentIndex, 1);
       console.log(comments);
 
+      // OK, jedine na co si davat pozor su nazvy premennych.
+      // i sa sice pouziva ako iterator, ked sa ale bavime o komentoch, vozidlach atd, 
+      // tak je vzdy najlepsie pouzit bud to ako nazov
+      // alebo ten nazov nejak skratit, e.g. vehicle -> veh
     </script>
   </body>
 </html>
