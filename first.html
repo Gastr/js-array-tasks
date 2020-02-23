@@ -102,43 +102,117 @@
         'truck',
       ];
 
-
-     
-
-     
-
-  
-
       // Array.prototype.map()
       // 1. Give us an array of the inventors' first and last names
+      const inventorNames = inventors.map(inventor => {
+        const firstName = inventor.first;
+        const lastName = inventor.last;
 
-      //const array = inv
+        return {
+          firstName: firstName,   // or direct: firstName = inventor.first; or make help const(s) as above and then: fisrName, lastName = has to be same as help const(s) above 
+          lastName: lastName
+        }
+      });
+      console.log('1st task - inventors first and last names \n', inventorNames);
+
+
+
       // Array.prototype.filter()
       // 2. Filter the list of inventors for those who were born in the 1500's
+      const inventors1500s = inventors.filter(inventor => inventor.year >= 1500 && inventor.year <= 1600);
+      console.log("2nd task - inventors born in 1500's \n", inventors1500s);
+
+
 
       // Array.prototype.sort()
       // 3. Sort the inventors by birthdate, oldest to youngest
+      const oldestToYoungest = inventors.sort((inventor1, inventor2) => inventor1.year - inventor2.year);   // from the youngest to the oldest: (inventor1, inventor2) => inventor2.year - inventor1.year
+      console.log('3rd task - inventors oldest to youngest \n', oldestToYoungest);
+
+
 
       // 4. How many years did all the inventors live?
+      const totalYears = inventors.reduce( (total,inventor) => total + (inventor.passed - inventor.year), 0);    // (saving const,item) => where to save + (passed year - birth year), starting position
+      console.log('4th task - How many years did all the inventors live? \n', totalYears);
+
+
 
       // 5. Sort the inventors by years lived
+      const ages = inventors.sort((inventor1, inventor2) => {
+        const inv1Age = inventor1.passed - inventor1.year;
+        const inv2Age = inventor2.passed - inventor2.year;
+
+        return inv1Age > inv2Age ? -1 : 1   // if it is true : do
+      })
+      console.log('5th task - inventors by years lived \n', ages);
+
+
 
       // 6. Create a list of people, whose surnames includes 'rr'
+      const peopleWithRR = people.filter(human => {
+        const [First, Last] = human.split(', ');
+
+        return First.includes('rr')
+        });
+      console.log("6th task - people with 'rr' in surname \n", peopleWithRR);
+
+
 
       // 7. Sort the people alphabetically by last name
+      const sortByLastName = people.sort((p1,p2) => {
+        const[p1First, p1Last] = p1.split(', ');
+        const[p2First, p2Last] = p2.split(', ');
+      })
+      const resultPeople = sortByLastName.sort((human) => human.p1Last);   
+      console.log('7th task - sort people by last name \n', resultPeople);
+
+      // inventors - people were sort by LastName even in the beginning
+      const sortByLastNameInventors = inventors.sort((inventor1, inventor2) => {
+        const inventorFirst = inventor1.last;
+        const inventorSecond = inventor2.last;
+        return inventorFirst < inventorSecond ? -1 : inventorFirst > inventorSecond ? 1 : 0;
+      })
+      console.log('7th task - sort inventors by last name \n', sortByLastNameInventors);
+
+
 
       // 8. Sum up the instances of vehicles
+      const sumUpInstances = vehicles.reduce(function(count, nameOfVehicle) {
+            count[nameOfVehicle] = count.hasOwnProperty(nameOfVehicle) ? count[nameOfVehicle] + 1 : 1;
+            return count;
+        }, {});
+      
+      console.log("8th task - instances of vehicles \n", sumUpInstances);
+
+
 
       // 9. Array.prototype.some() // is at least one person in the morePeople array 19 or older?
+      const actuallYear = new Date().getFullYear();
+
+      const olderThan19 = (element) => (actuallYear - element.year) >= 19;
+      console.log('9th task - any person (in morePeople) 19 or older? \n', morePeople.some(olderThan19));
+
+
 
       // 10. Array.prototype.every() // is everyone in the morePeople array 19 or older?
+      console.log('10th task - everyone (in morePeople) 19 or older? \n', morePeople.every(olderThan19));
+
+
 
       // 11. Array.prototype.find()
       // Find is like filter, but instead returns just the one you are looking for
       // find the comment with the ID of 823423
+      // ID of 823423 = 'Super good'
+      const findById = comments.find(comment => comment.id == 823423);
+      console.log("11th task - text of comment with ID of '823423' \n", findById.text);
+
+
 
       // Array.prototype.findIndex()
       // 13. delete the comment with the ID of 823423
+      // console.log(comments.indexOf(findById));
+      comments.splice(comments.indexOf(findById), 1);
+      console.log("13th task - delete comment with ID of '823423' \n", comments);
 
 
     </script>
