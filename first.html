@@ -102,44 +102,86 @@
         'truck',
       ];
 
-
-     
-
-     
-
-  
-
       // Array.prototype.map()
       // 1. Give us an array of the inventors' first and last names
+      const inventorNames=inventors.map(inventor=>{
+        const firstName=inventor.first;
+        const lastName=inventor.last;
+        return {
+          firstName,
+          lastName
+        }
+      });
+      console.log(inventorNames);
 
-      //const array = inv
       // Array.prototype.filter()
       // 2. Filter the list of inventors for those who were born in the 1500's
+
+      const inventors1500s = inventors.filter(inventor=>inventor.year>=1501 && inventor.year<=1600);
+      console.log(inventors1500s);
 
       // Array.prototype.sort()
       // 3. Sort the inventors by birthdate, oldest to youngest
 
+      const odlestToYoungest=inventors.sort((inventor1,inventor2)=>inventor1.year-inventor2.year);
+      console.log(odlestToYoungest);
+
       // 4. How many years did all the inventors live?
+      const totalYears=inventors.reduce((total,inventor)=>total+(inventor.passed-inventor.year),0);
+      console.log(totalYears);
 
       // 5. Sort the inventors by years lived
 
+      const sortedByLived=inventors.sort((inv1,inv2)=>{
+        const inv1Age=inv1.passed-inv1.year;
+        const inv2Age=inv2.passed-inv2.year;
+        return inv1Age>inv2Age ? -1:1;
+      });
+      console.log(sortedByLived);
+
       // 6. Create a list of people, whose surnames includes 'rr'
 
+      const SurnamesIncludes=people.filter(human=>human.includes('rr'));
+      console.log(SurnamesIncludes);
+
       // 7. Sort the people alphabetically by last name
+      const sortByLastName=people.sort((p1,p2)=>{
+        const [p1Fisrt,p1Last]=p1.split(', ');
+        const [p2Fisrt,p2Last]=p2.split(', ');
+        return p1Last-p2Last;
+      });
+      console.log(sortByLastName);
 
       // 8. Sum up the instances of vehicles
 
+      const instances=vehicles.reduce((accumulator,value)=>({
+        ...accumulator,
+        [value]:(accumulator[value] || 0)+1
+      }),{});
+      console.log(instances);
+
       // 9. Array.prototype.some() // is at least one person in the morePeople array 19 or older?
 
+      const AtleastOne19=morePeople.some(human=>(2020-human.year)>=19);
+      console.log(AtleastOne19);
+
       // 10. Array.prototype.every() // is everyone in the morePeople array 19 or older?
+
+      const AllOlder=morePeople.every(human=>(2020-human.year)>=19);
+      console.log(AllOlder);
 
       // 11. Array.prototype.find()
       // Find is like filter, but instead returns just the one you are looking for
       // find the comment with the ID of 823423
 
+      const FoundComment=comments.find(comment=>comment.id===823423);
+      console.log(FoundComment);
+
       // Array.prototype.findIndex()
       // 13. delete the comment with the ID of 823423
 
+      comments.splice(comments.findIndex(comment=>comment.id===823423),1)
+      console.log(comments);
 
     </script>
   </body>
