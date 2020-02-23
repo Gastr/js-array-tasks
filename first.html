@@ -113,20 +113,32 @@
           last_name
         }
       });
+
+      // chyba medzera na riadku 111. Nie je to chyba, ale v ramci stylistiky je to fajn
+      // Odporucam nainstlaovat do VS Code extension "Prettier", ktora sluzi ako code formatter (ja to puzivam furt)
+      // CTRL + Shift + P -> Format Document a samo ti to zarovna atd.
       console.log(inventor_names);
 
       // Array.prototype.filter()
       // 2. Filter the list of inventors for those who were born in the 1500's
       const inventors1500s = inventors.filter(inventor => inventor.year >= 1501 && inventor.year <= 1600);
+
+      // Viem, ze toto je asi kod este z hodiny, ale pozor na cisla v nazvoch premennych
       console.log(inventors1500s);
 
       // Array.prototype.sort()
       // 3. Sort the inventors by birthdate, oldest to youngest
       const oldest_to_youngest = inventors.sort((inventor1, inventor2) => inventor1.year - inventor2.year);
+
+      // opat, pozor na cisla (Patrika zjebeme tiez)
+
       console.log(oldest_to_youngest);
 
       // 4. How many years did all the inventors live?
       const total_years = inventors.reduce((total,inventor) => total + (inventor.passed - inventor.year),0);
+
+      // Vzdy ked pises nieco za ciarkou, tak tam capni medzeru, ,0) -> , 0).
+      // Lepsie sa to cita
       console.log(total_years);
 
       // 5. Sort the inventors by years lived
@@ -145,27 +157,43 @@
       // 7. Sort the people alphabetically by last name
       const by_last_name = people.sort((p1,p2) => {
         const [p1_first,p1_last] = p1.split(', ');
+
+        // tu si nieco zabudol :)
       })
       console.log(by_last_name);
 
       // 8. Sum up the instances of vehicles
       const sum_up_the_instances_of_vehicles = vehicles.reduce((sum) => sum += 1, 0);
+
+      // tu sa mal vratit objekt typu { car: 2, bus: 3, motorbike: 1 } atd.
+      // ale chapem, zadanie nemuselo byt na prve precitanie jasne.. upravim pre buduce generacie
+      // kazdopadne to prosim este uprav :)
       console.log(sum_up_the_instances_of_vehicles);
 
       /*/*//*/*/
       const current_year = new Date().getFullYear();
       // 9. Array.prototype.some() // is at least one person in the morePeople array 19 or older?
       const is_at_least_someone_older_than_nineteen = morePeople.some(age => new Date().getFullYear() - age.year >= 19);
+
+      // cenim, ze si si vytiahol aktualny rok a nehodil tam natvrdo 2020
       console.log('is_at_least_someone_older_than_nineteen: ' + is_at_least_someone_older_than_nineteen);
 
       // 10. Array.prototype.every() // is everyone in the morePeople array 19 or older?
       const is_everyone_older_than_nineteen = morePeople.every(age => current_year - age.year >= 19);
       console.log('is_everyone_older_than_nineteen: ' + is_everyone_older_than_nineteen);
 
+      // Odporucam pre vypis JS stringov pouzivat template literals, ako sme spominali na prednaske. Priklad nizsie:
+      // console.log(`is everyone blah blah : ${is_everyone_older_than_nineteen}`);
+
       // 11. Array.prototype.find()
       // Find is like filter, but instead returns just the one you are looking for
       // find the comment with the ID of 823423
       const gimme_id = comments.find(is_it_mine => is_it_mine.id === 823423);
+
+      // Poprosim deskriptivnejsie nazvy premennych.. gimme_id mi hned nepovie, coho chcem id, musim sa pozerat na kod dalej.
+      // (tu je to samozrejme jasne zo zadania, kazdopadne cim skor si na to zvyknes, tym lepsie. 
+      // Vratit sa k niecomu po pol roku a mat tam nedeskriptivne premenne je najvacsie peklo a kolegovia ti tiez nepodakuju)
+      // is_it_mine tiez nie je uplne vhodny nazov.
       console.log(gimme_id);
 
       // Array.prototype.findIndex()
@@ -174,7 +202,11 @@
       console.log(gimme_id);
       console.log(comments);
 
-
+      // Poprosim doplnit ulohu 7 a 8, inak ok
+      // JS sa vseobecne pise v camel case, cize gimme_id => gimmeId. Nabuduce si na to daj prosim pozor.
+      // A deskriptivnejsie nazvy premennych nabuduce. Su to sice len cvicne ulohy, ale cim skor to chytis pod ruku, tym lepsie
+      // Na moodle zatial hodim 'DOPLNIT'
+  
     </script>
   </body>
 </html>
