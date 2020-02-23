@@ -110,7 +110,7 @@
 
         return {
           firstName: firstName,   // or direct: firstName = inventor.first; or make help const(s) as above and then: fisrName, lastName = has to be same as help const(s) above 
-          lastName: lastName
+          lastName: lastName      // ak maju kluce ovnaky nazov, nemusis im priradovat hodnotu, e.g. { firstName, lastName } postaci
         }
       });
       console.log('1st task - inventors first and last names \n', inventorNames);
@@ -150,7 +150,7 @@
 
       // 6. Create a list of people, whose surnames includes 'rr'
       const peopleWithRR = people.filter(human => {
-        const [First, Last] = human.split(', ');
+        const [First, Last] = human.split(', ');   // premenne v JS sa vo vseobecnosti pisu v camel case - First -> first
 
         return First.includes('rr')
         });
@@ -160,25 +160,25 @@
 
       // 7. Sort the people alphabetically by last name
       const sortByLastName = people.sort((p1,p2) => {
-        const[p1First, p1Last] = p1.split(', ');
+        const[p1First, p1Last] = p1.split(', '); // Viem, ze Patrik mal na hodine cisla v premennychh, kazdopadne konvencia je nepouzivat ich :)
         const[p2First, p2Last] = p2.split(', ');
       })
-      const resultPeople = sortByLastName.sort((human) => human.p1Last);   
+      const resultPeople = sortByLastName.sort((human) => human.p1Last);   // Co ked su medzi ludmi zidojasteri! Btw, ak mas iba jedne argument, nemusis ho v ramci arrow funkcie uzatvarat do zatvoriek
       console.log('7th task - sort people by last name \n', resultPeople);
 
-      // inventors - people were sort by LastName even in the beginning
+      // inventors - people were sort by LastName even in the beginning... How convenient!
       const sortByLastNameInventors = inventors.sort((inventor1, inventor2) => {
         const inventorFirst = inventor1.last;
         const inventorSecond = inventor2.last;
-        return inventorFirst < inventorSecond ? -1 : inventorFirst > inventorSecond ? 1 : 0;
+        return inventorFirst < inventorSecond ? -1 : inventorFirst > inventorSecond ? 1 : 0; // Vo vseobecnosti je lepsie nepouzivat double ternary. Riesenie je sice kratke a funkcne, ale vzdy plati readability > compact code
       })
       console.log('7th task - sort inventors by last name \n', sortByLastNameInventors);
 
 
 
       // 8. Sum up the instances of vehicles
-      const sumUpInstances = vehicles.reduce(function(count, nameOfVehicle) {
-            count[nameOfVehicle] = count.hasOwnProperty(nameOfVehicle) ? count[nameOfVehicle] + 1 : 1;
+      const sumUpInstances = vehicles.reduce(function(count, nameOfVehicle) { // toto a riesenie predtym som uz niekde videl :P
+            count[nameOfVehicle] = count.hasOwnProperty(nameOfVehicle) ? count[nameOfVehicle] + 1 : 1; 
             return count;
         }, {});
       
@@ -215,6 +215,7 @@
       console.log("13th task - delete comment with ID of '823423' \n", comments);
 
 
+    // OK
     </script>
   </body>
 </html>
