@@ -213,6 +213,10 @@
             const [p1First, p1Last] = person.split(", ");
             return p1First.includes("rr");
         });
+
+        // a bez cisel v nazvoch premennych prosim
+        // (viem, ze Patrik to mal na hodine tiez, ale upozornil som na to a dostal patricneho zjeba!)
+
         console.log("6a. People - name includes 'RR'", rrName);
         //surname
         const rrSurname = people.filter(person => {
@@ -240,15 +244,23 @@
             count[word] = count.hasOwnProperty(word) ? count[word] + 1 : 1;
             return count;
         }, {});
+
+        // super, ale klasickym funkciam by som sa v tomto pripade vyvaroval
+        // ak pouzivas funkciu ako callback, vhodnejsie je zvolit arrow funkciu
+        // () => {}
         console.log("8. Instances of vehicles: \n", occurence);
 
         // 9. Array.prototype.some() // is at least one person in the morePeople array 19 or older?
         const atLeast = morePeople.some(person => {
-            const d = new Date();
+            const d = new Date().getFullYear();
             const yearNow = d.getFullYear();
             const age = yearNow - person.year;
             return age >= 19;
         });
+
+        // rok mozes rovno vytiahnut takto:
+        // const d = new Date().getFullYear();
+        // usetris si tak riadok :)
         console.log("9. At least one person has 19 years: \n" + atLeast);
 
         // 10. Array.prototype.every() // is everyone in the morePeople array 19 or older?
@@ -273,6 +285,13 @@
         );
         comments.splice(wantedIdToDelete, 1);
         console.log("12. Comments: \n", comments);
+
+        // Super, kazdopadne..
+        // Pre vypis by som pouzil stirng literals, ako sme si ukazovali na prednaske:
+        // console.log(`wanted id: ${wantedID}`)
+        // jedine na co si davat pozor je, ze nepismee jednoduche uvodzovky, ale backticks ` `
+
+        // Kod je pekne oddeleny, indentnuty a prehladny!
     </script>
 </body>
 
