@@ -112,6 +112,9 @@
           lastName
         }
       });
+      
+      // sice cenim kompaktnost riesenie, ale je fajn davat medzery medzi arrow funkciami, operatormi atd
+      // vyrazne to pomaha citatelnosti
       console.log(inventorNames);
 
       // Array.prototype.filter()
@@ -124,6 +127,8 @@
       // 3. Sort the inventors by birthdate, oldest to youngest
 
       const odlestToYoungest=inventors.sort((inventor1,inventor2)=>inventor1.year-inventor2.year);
+
+      // typo v nazve premennej
       console.log(odlestToYoungest);
 
       // 4. How many years did all the inventors live?
@@ -142,6 +147,8 @@
       // 6. Create a list of people, whose surnames includes 'rr'
 
       const SurnamesIncludes=people.filter(human=>human.includes('rr'));
+
+      // co ked su medzi nimi zidojasteri a nielem ludia!
       console.log(SurnamesIncludes);
 
       // 7. Sort the people alphabetically by last name
@@ -163,11 +170,17 @@
       // 9. Array.prototype.some() // is at least one person in the morePeople array 19 or older?
 
       const AtleastOne19=morePeople.some(human=>(2020-human.year)>=19);
+
+      // v JS sa cisla do nazvu premennych nepisu, v ramci konvencie
+      // (viem, ze aj Patrik to tam hodil na hodine, upozornil som na to, takze z casti aj nasa chyba, ale len tip do buducna :)  )
       console.log(AtleastOne19);
 
       // 10. Array.prototype.every() // is everyone in the morePeople array 19 or older?
 
       const AllOlder=morePeople.every(human=>(2020-human.year)>=19);
+
+      // co keby sme toto mali v zimaku a skontroloval by som to az po Novom roku?
+      // premmne v JS pisat camel casom, cize AllOlder -> allOlder
       console.log(AllOlder);
 
       // 11. Array.prototype.find()
@@ -181,8 +194,16 @@
       // 13. delete the comment with the ID of 823423
 
       comments.splice(comments.findIndex(comment=>comment.id===823423),1)
+
+      // dobre riesenie na jeden riadok
+      // kazdopadne kludne si mozes vytiahnut id toho komentu do samostatnej premennej a to vlozit do splice
+      // vo vseobecnosti plati:  readability > compact code
       console.log(comments);
 
+      // Dobre to mas!
+      // davat si pozor na medzery. Moze sis nainstalovat extension "Prettier" pre VS Code a potom len CTRL + SHIFT + P -> Format Document
+      // kod ti to potom smao krasne upravi, podoplna bodkociarky, indentne atd.
+      // a camel case nazvy premennych prosim
     </script>
   </body>
 </html>
