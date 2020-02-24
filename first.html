@@ -154,17 +154,43 @@
       console.log(sortByLastName);
 
       // 8. Sum up the instances of vehicles
-      const sumVehicles = vehicles.reduce((sum, vehicles) => sum + 1, 0);
-      console.log(sumVehicles);
+      const sortVehicles = vehicles.sort();
+      console.log("sortVehicles");
+      console.log(sortVehicles);
+
+      let cnt = 0;
+      let current = null;
+
+      for (var i = 0; i < sortVehicles.length; i++) {
+        if (sortVehicles[i] != current) {
+            if (cnt > 0) {
+              console.log(current + ' x ' + cnt);
+            }
+            current = sortVehicles[i];
+            cnt = 1;
+        } else {
+            cnt++;
+        }
+    }
+    if (cnt > 0) {
+      console.log(current + ' x ' + cnt);
+    }
 
 
       // 9. Array.prototype.some() // is at least one person in the morePeople array 19 or older?
-      const someOlder18 = morePeople.some(item => 2020 - item.year >= 19);
-      console.log(someOlder18);
+      const dt = new Date();
+      //console.log("getFullYear() : " + dt.getFullYear() );
+
+      console.log("morePeople - array:");
+      console.log(morePeople);
+
+
+      const someOlder18 = morePeople.some(item => dt.getFullYear() - item.year >= 19);
+      console.log("some has least 19 or older - " + someOlder18);
 
       // 10. Array.prototype.every() // is everyone in the morePeople array 19 or older?
-      const everyOlder18 = morePeople.every(item => 2020 - item.year >= 19);
-      console.log(everyOlder18);
+      const everyOlder18 = morePeople.every(item => dt.getFullYear() - item.year >= 19);
+      console.log("Everybody has least 19 or older - "+ everyOlder18);
 
       // 11. Array.prototype.find()
       // Find is like filter, but instead returns just the one you are looking for
